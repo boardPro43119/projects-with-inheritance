@@ -72,10 +72,10 @@ public class ReadingMaterial {
 		result+="By " + author + "\n";
 
 		if(inStock){
-			result+="In stock";
+			result+="\nIn stock";
 		}
 		else{
-			result+="Out of stock\nCurrent owner: " + owner;
+			result+="\nOut of stock\nCurrent owner: " + owner + "\nBorrowed for " + daysBorrowed + " days";
 		}
 
 		return result;

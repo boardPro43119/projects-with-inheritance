@@ -54,7 +54,7 @@ public class Book extends ReadingMaterial {
 
 	public String toString(){
 		String result = "";
-		result+=title + "\n";
+		result+=title + " (" + deweyDecimalNumber + ")\n";
 		result+="By " + author + "\n";
 		result+=writingType + ", " + genre + "\n";
 		result+=pageCount + " pages" + "\n";
@@ -64,6 +64,13 @@ public class Book extends ReadingMaterial {
 			for (String character : mainCharacters) {
 				result+=character + "\n";
 			}
+		}
+
+		if(inStock){
+			result+="\nIn stock";
+		}
+		else{
+			result+="\nOut of stock\nCurrent owner: " + owner + "\nBorrowed for " + daysBorrowed + " days";
 		}
 
 		return result;
