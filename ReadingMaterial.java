@@ -3,28 +3,39 @@ public class ReadingMaterial {
 	protected String author;
 	protected double deweyDecimalNumber = 0;
 
+	protected boolean inStock;
+	protected String owner;
+	protected int daysBorrowed;
+
 
 	public ReadingMaterial(String title, String author, int deweyDecimalNumber){
 		this.title = title;
 		this.author = author;
 		this.deweyDecimalNumber = deweyDecimalNumber;
+		this.inStock = true;
+		this.owner = "";
 	}
 
 	public ReadingMaterial(String title, String author){
 		this.title = title;
 		this.author = author;
+		this.inStock = true;
+		this.owner = "";
 	}
 
-	public String getTitle(){
-		return title;
+	public void checkOut(String owner, int daysToReturn){
+		this.inStock = false;
+		this.daysBorrowed = 0;
+		this.owner = owner;
 	}
 
-	public String getAuthor(){
-		return author;
+	public void addBorrowedDay(){
+		daysBorrowed++;
 	}
 
-	public double getDeweyDecimalNumber(){
-		return deweyDecimalNumber;
+	public void checkIn(){
+		this.inStock = true;
+		this.owner = "";
 	}
 
 	public void setTitle(String newTitle){
@@ -39,10 +50,33 @@ public class ReadingMaterial {
 		deweyDecimalNumber = newDeweyDecimalNumber;
 	}
 
+	public String getTitle(){
+		return title;
+	}
+
+	public String getAuthor(){
+		return author;
+	}
+
+	public double getDeweyDecimalNumber(){
+		return deweyDecimalNumber;
+	}
+
+	public boolean inStock(){
+		return inStock;
+	}
+
 	public String toString(){
 		String result = "";
-		result+=title + "\n";
+		result+=title + " (" + deweyDecimalNumber + ")\n";
 		result+="By " + author + "\n";
+
+		if(inStock){
+			result+="In stock";
+		}
+		else{
+			result+="Out of stock\nCurrent owner: " + owner;
+		}
 
 		return result;
 	}
