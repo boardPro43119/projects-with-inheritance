@@ -1,35 +1,36 @@
 import java.util.ArrayList;
 
 public class Book extends ReadingMaterial {
+	private String author;
+	private double deweyDecimalNumber;
 	private String writingType;
 	private String genre;
 	private int pageCount;
 	private ArrayList<String> mainCharacters = new ArrayList<String>();
 
-	public Book(String title, String author, int deweyDecimalNumber, String writingType, String genre, int pageCount){
-		super(title, author, deweyDecimalNumber);
+	public Book(String title, int deweyDecimalNumber, String author, String writingType, String genre, int pageCount){
+		super(title);
+		this.deweyDecimalNumber = deweyDecimalNumber;
+		this.author = author;
 		this.writingType = writingType;
 		this.genre = genre;
 		this.pageCount = pageCount;
 	}
 
 	public Book(String title, String author, String writingType, String genre, int pageCount){
-		super(title, author);
+		super(title);
+		this.author = author;
 		this.writingType = writingType;
 		this.genre = genre;
 		this.pageCount = pageCount;
 	}
 
-	public String getWritingType(){
-		return writingType;
+	public void setDeweyDecimalNumber(double newDeweyDecimalNumber){
+		deweyDecimalNumber = newDeweyDecimalNumber;
 	}
 
-	public String getGenre(){
-		return genre;
-	}
-
-	public int getPageCount(){
-		return pageCount;
+	public void setAuthor(String newAuthor){
+		author = newAuthor;
 	}
 
 	public void setWritingType(String newWritingType){
@@ -52,6 +53,35 @@ public class Book extends ReadingMaterial {
 		return mainCharacters.remove(mainChar);
 	}
 
+	public double getDeweyDecimalNumber(){
+		return deweyDecimalNumber;
+	}
+
+	public String getAuthor(){
+		return author;
+	}
+
+	public String getWritingType(){
+		return writingType;
+	}
+
+	public String getGenre(){
+		return genre;
+	}
+
+	public int getPageCount(){
+		return pageCount;
+	}
+
+	public String getMainCharacters(){
+		String result = "";
+		for(String character : mainCharacters){
+			result+=character + "\n";
+		}
+
+		return result;
+	}
+
 	public String toString(){
 		String result = "";
 		result+=title + " (" + deweyDecimalNumber + ")\n";
@@ -61,17 +91,11 @@ public class Book extends ReadingMaterial {
 
 		if(mainCharacters.size()>0){
 			result+="Main characters: " + "\n";
-			for (String character : mainCharacters) {
-				result+=character + "\n";
-			}
+			result+=getMainCharacters();
 		}
 
-		if(inStock){
-			result+="\nIn stock";
-		}
-		else{
-			result+="\nOut of stock\nCurrent owner: " + owner + "\nBorrowed for " + daysBorrowed + " days";
-		}
+		result+="\n";
+		result+=getStatus();
 
 		return result;
 	}
