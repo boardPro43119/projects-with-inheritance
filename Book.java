@@ -3,24 +3,21 @@ import java.util.ArrayList;
 public class Book extends ReadingMaterial {
 	private String author;
 	private double deweyDecimalNumber;
-	private String writingType;
 	private String genre;
 	private int pageCount;
 	private ArrayList<String> mainCharacters = new ArrayList<String>();
 
-	public Book(String title, int deweyDecimalNumber, String author, String writingType, String genre, int pageCount){
-		super(title);
+	public Book(String title, double deweyDecimalNumber, String author, String writingType, String genre, int pageCount){
+		super(title, writingType);
 		this.deweyDecimalNumber = deweyDecimalNumber;
 		this.author = author;
-		this.writingType = writingType;
 		this.genre = genre;
 		this.pageCount = pageCount;
 	}
 
 	public Book(String title, String author, String writingType, String genre, int pageCount){
-		super(title);
+		super(title, writingType);
 		this.author = author;
-		this.writingType = writingType;
 		this.genre = genre;
 		this.pageCount = pageCount;
 	}
@@ -31,10 +28,6 @@ public class Book extends ReadingMaterial {
 
 	public void setAuthor(String newAuthor){
 		author = newAuthor;
-	}
-
-	public void setWritingType(String newWritingType){
-		writingType = newWritingType;
 	}
 
 	public void setGenre(String newGenre){
@@ -61,10 +54,6 @@ public class Book extends ReadingMaterial {
 		return author;
 	}
 
-	public String getWritingType(){
-		return writingType;
-	}
-
 	public String getGenre(){
 		return genre;
 	}
@@ -87,7 +76,9 @@ public class Book extends ReadingMaterial {
 		result+=title + " (" + deweyDecimalNumber + ")\n";
 		result+="By " + author + "\n";
 		result+=writingType + ", " + genre + "\n";
-		result+=pageCount + " pages" + "\n";
+		if(pageCount!=0){
+			result+=pageCount + " pages" + "\n";
+		}
 
 		if(mainCharacters.size()>0){
 			result+="Main characters: " + "\n";
@@ -95,7 +86,7 @@ public class Book extends ReadingMaterial {
 		}
 
 		result+="\n";
-		result+=getStatus();
+		result+=getStatus() + "\n";
 
 		return result;
 	}
