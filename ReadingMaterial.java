@@ -1,6 +1,13 @@
+import java.util.ArrayList;
+
 public class ReadingMaterial {
 	protected String title;
 	protected String writingType;
+	protected String author = "";
+	protected double deweyDecimalNumber = 0;
+	protected String genreSubject = "";
+	protected ArrayList<String> mainCharacters = new ArrayList<String>();
+
 	protected boolean inStock;
 	protected String owner;
 	protected int daysBorrowed;
@@ -66,10 +73,6 @@ public class ReadingMaterial {
 		return daysUntilOverdue;
 	}
 
-	public String getTitle(){
-		return title;
-	}
-
 	public void setTitle(String newTitle){
 		title = newTitle;
 	}
@@ -78,8 +81,53 @@ public class ReadingMaterial {
 		writingType = newWritingType;
 	}
 
+	public void setDeweyDecimalNumber(double newDeweyDecimalNumber){
+		deweyDecimalNumber = newDeweyDecimalNumber;
+	}
+
+	public void setAuthor(String newAuthor){
+		author = newAuthor;
+	}
+
+	public void setGenreSubject(String newGenreSubject){
+		genreSubject = newGenreSubject;
+	}
+
+	public void addMainCharacter(String mainChar){
+		mainCharacters.add(mainChar);
+	}
+
+	public boolean removeMainCharacter(String mainChar){
+		return mainCharacters.remove(mainChar);
+	}
+
+	public String getTitle(){
+		return title;
+	}
+
 	public String getWritingType(){
 		return writingType;
+	}
+
+	public double getDeweyDecimalNumber(){
+		return deweyDecimalNumber;
+	}
+
+	public String getAuthor(){
+		return author;
+	}
+
+	public String getGenreSubject(){
+		return genreSubject;
+	}
+
+	public String getMainCharacters(){
+		String result = "";
+		for(String character : mainCharacters){
+			result+=character + "\n";
+		}
+
+		return result;
 	}
 
 	public boolean inStock(){

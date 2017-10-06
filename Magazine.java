@@ -8,16 +8,12 @@ public class Magazine extends ReadingMaterial{
 		super(title);
 		this.writingType = "Magazine";
 		this.issue = issue;
-		this.subject = subject;
+		this.genreSubject = subject;
 		this.pageCount = pageCount;
 	}
 
 	public void setIssue(String newIssue){
 		issue = newIssue;
-	}
-
-	public void setSubject(String newSubject){
-		subject = newSubject;
 	}
 
 	public void setPageCount(int newPageCount){
@@ -32,10 +28,6 @@ public class Magazine extends ReadingMaterial{
 		return issue;
 	}
 
-	public String getSubject(){
-		return subject;
-	}
-
 	public int getPageCount(){
 		return pageCount;
 	}
@@ -48,7 +40,7 @@ public class Magazine extends ReadingMaterial{
 		String result = "";
 		result+=title + "\n";
 		result+="Issue: " + issue + "\n";
-		result+=writingType + ", " + subject + "\n";
+		result+=writingType + ", " + genreSubject + "\n";
 		if(pageCount!=0){
 			result+=pageCount + " pages" + "\n";
 		}

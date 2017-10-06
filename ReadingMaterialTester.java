@@ -31,37 +31,41 @@ public class ReadingMaterialTester{
 		// System.out.println(sportsIllustrated1);
 		// System.out.println(nyTimes1);
 
-		Library library = new Library(7);
+		Library library = new Library("Newtown Public Library", 7);
 
 		library.addItem(hungerGames);
 		library.addItem(sportsIllustrated1);
 		library.addItem(nyTimes1);
 
-		System.out.println(library.getOverdueItems());
+		// System.out.println(library.getOverdueItems());
 
-		sportsIllustrated1.checkOut("Benjamin Prud'homme");
+		// sportsIllustrated1.checkOut("Benjamin Prud'homme");
 
-		System.out.println(sportsIllustrated1);
+		// System.out.println(sportsIllustrated1);
 
-		sportsIllustrated1.addBorrowedDay();
-		sportsIllustrated1.addBorrowedDay();
-		sportsIllustrated1.addBorrowedDay();
-		sportsIllustrated1.addBorrowedDay();
-		sportsIllustrated1.addBorrowedDay();
-		sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
 
-		System.out.println(library.getOverdueItems());
+		// System.out.println(library.getOverdueItems());
 
-		sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
 
-				System.out.println(sportsIllustrated1);
+		// 		System.out.println(sportsIllustrated1);
 
 
-		System.out.println(library.getOverdueItems());
+		// System.out.println(library.getOverdueItems());
 
-		sportsIllustrated1.addBorrowedDay();
+		// sportsIllustrated1.addBorrowedDay();
 
-		System.out.println(library.getOverdueItems());
+		// System.out.println(library.getOverdueItems());
+
+		// System.out.println(library);
+
+		System.out.println(library.search("genre", "sports"));
 
 	}
 }
