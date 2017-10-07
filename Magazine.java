@@ -1,6 +1,5 @@
 public class Magazine extends ReadingMaterial{
 	private String issue;
-	private String subject;
 	private int pageCount;
 	private String coverStory;
 

@@ -69,8 +69,12 @@ public class ReadingMaterial {
 		daysUntilOverdue = threshold;
 	}
 
-	public int setOverdueLimit(){
+	public int getOverdueLimit(){
 		return daysUntilOverdue;
+	}
+
+	public boolean inStock(){
+		return inStock;
 	}
 
 	public void setTitle(String newTitle){
@@ -128,10 +132,6 @@ public class ReadingMaterial {
 		}
 
 		return result;
-	}
-
-	public boolean inStock(){
-		return inStock;
 	}
 
 	public String toString(){
