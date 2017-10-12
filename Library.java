@@ -38,48 +38,58 @@ public class Library {
 		else if(category.toLowerCase().contains("character")){
 			category = "main character";
 		}
+		else if(category.toLowerCase().contains("story")){
+			category = "cover story";
+		}
 
 		String result = "Search results for " + category + " " + query + "\n";
 
 		switch(category){
 			case "title":
 				for (ReadingMaterial item : items) {
-					if(item.getTitle().toLowerCase().contains(query.toLowerCase())){
+					if(item.get("title").toLowerCase().contains(query.toLowerCase())){
 						result+=item;
 					}
 				}
 				break;
 			case "author":
 				for (ReadingMaterial item : items) {
-					if(item.getAuthor().toLowerCase().contains(query.toLowerCase())){
+					if(item.get("author").toLowerCase().contains(query.toLowerCase())){
 						result+=item;
 					}
 				}
 				break;
 			case "writing type":
 				for (ReadingMaterial item : items) {
-					if(item.getWritingType().toLowerCase().contains(query.toLowerCase())){
+					if(item.get("writingType").toLowerCase().contains(query.toLowerCase())){
 						result+=item;
 					}
 				}
 				break;
 			case "genre/subject":
 				for (ReadingMaterial item : items) {
-					if(item.getGenreSubject().toLowerCase().contains(query.toLowerCase())){
+					if(item.get("genreSubject").toLowerCase().contains(query.toLowerCase())){
 						result+=item;
 					}
 				}
 				break;
 			case "Dewey Decimal number":
 				for (ReadingMaterial item : items) {
-					if(Double.toString(item.getDeweyDecimalNumber()).equals(query)){
+					if(item.get("deweyDecimalNumber").equals(query)){
 						result+=item;
 					}
 				}
 				break;
 			case "main character":
 				for (ReadingMaterial item : items) {
-					if(item.getMainCharacters().toLowerCase().contains(query.toLowerCase())){
+					if(item.get("mainCharacters").toLowerCase().contains(query.toLowerCase())){
+						result+=item;
+					}
+				}
+				break;
+			case "cover story":
+				for (ReadingMaterial item : items) {
+					if(item.get("coverStory").toLowerCase().contains(query.toLowerCase())){
 						result+=item;
 					}
 				}

@@ -6,6 +6,7 @@ public class Newspaper extends ReadingMaterial{
 		super(title);
 		this.writingType = "Newspaper";
 		this.issue = issue;
+		this.coverStory = "";
 	}
 
 	public void setIssue(String newIssue){
@@ -14,14 +15,20 @@ public class Newspaper extends ReadingMaterial{
 
 	public void setCoverStory(String newCoverStory){
 		coverStory = newCoverStory;
+		hasCoverStory = true;
 	}
 
-	public String getIssue(){
-		return issue;
-	}
-
-	public String getCoverStory(){
-		return coverStory;
+	public String get(String property){
+		switch(property){
+			case "title":
+				return title;
+			case "writingType":
+				return writingType;
+			case "coverStory":
+				return coverStory;
+			default:
+				return title + "does not have a property" + property;
+		}
 	}
 
 	public String toString(){

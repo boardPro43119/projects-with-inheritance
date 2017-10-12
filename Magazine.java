@@ -1,5 +1,6 @@
 public class Magazine extends ReadingMaterial{
 	private String issue;
+	private String genreSubject;
 	private int pageCount;
 	private String coverStory;
 
@@ -9,10 +10,17 @@ public class Magazine extends ReadingMaterial{
 		this.issue = issue;
 		this.genreSubject = subject;
 		this.pageCount = pageCount;
+		this.coverStory = "";
+
+		this.hasGenreSubject = true;
 	}
 
 	public void setIssue(String newIssue){
 		issue = newIssue;
+	}
+
+	public void setGenreSubject(String newGenreSubject){
+		genreSubject = newGenreSubject;
 	}
 
 	public void setPageCount(int newPageCount){
@@ -21,19 +29,41 @@ public class Magazine extends ReadingMaterial{
 
 	public void setCoverStory(String newCoverStory){
 		coverStory = newCoverStory;
+		hasCoverStory = true;
 	}
 
-	public String getIssue(){
-		return issue;
+	public String get(String property){
+		switch(property){
+			case "title":
+				return title;
+			case "writingType":
+				return writingType;
+			case "genreSubject":
+				return genreSubject;
+			case "pageCount":
+				return String.valueOf(pageCount);
+			case "coverStory":
+				return coverStory;
+			default:
+				return title + "does not have a property" + property;
+		}
 	}
 
-	public int getPageCount(){
-		return pageCount;
-	}
+	// public String getIssue(){
+	// 	return issue;
+	// }
 
-	public String getCoverStory(){
-		return coverStory;
-	}
+	// public String getGenreSubject(){
+	// 	return genreSubject;
+	// }
+
+	// public int getPageCount(){
+	// 	return pageCount;
+	// }
+
+	// public String getCoverStory(){
+	// 	return coverStory;
+	// }
 
 	public String toString(){
 		String result = "";

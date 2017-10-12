@@ -1,12 +1,13 @@
-import java.util.ArrayList;
-
 public class ReadingMaterial {
 	protected String title;
 	protected String writingType;
-	protected String author = "";
-	protected double deweyDecimalNumber = 0;
-	protected String genreSubject = "";
-	protected ArrayList<String> mainCharacters = new ArrayList<String>();
+
+	protected boolean hasAuthor = false;
+	protected boolean hasDeweyDecimalNumber = false;
+	protected boolean hasGenreSubject = false;
+	protected boolean hasMainCharacters = false;
+	protected boolean hasPageCount = false;
+	protected boolean hasCoverStory = false;
 
 	protected boolean inStock;
 	protected String owner;
@@ -85,24 +86,15 @@ public class ReadingMaterial {
 		writingType = newWritingType;
 	}
 
-	public void setDeweyDecimalNumber(double newDeweyDecimalNumber){
-		deweyDecimalNumber = newDeweyDecimalNumber;
-	}
-
-	public void setAuthor(String newAuthor){
-		author = newAuthor;
-	}
-
-	public void setGenreSubject(String newGenreSubject){
-		genreSubject = newGenreSubject;
-	}
-
-	public void addMainCharacter(String mainChar){
-		mainCharacters.add(mainChar);
-	}
-
-	public boolean removeMainCharacter(String mainChar){
-		return mainCharacters.remove(mainChar);
+	public String get(String property){
+		switch(property){
+			case "title":
+				return title;
+			case "writingType":
+				return writingType;
+			default:
+				return title + "does not have a property" + property;
+		}
 	}
 
 	public String getTitle(){
@@ -111,27 +103,6 @@ public class ReadingMaterial {
 
 	public String getWritingType(){
 		return writingType;
-	}
-
-	public double getDeweyDecimalNumber(){
-		return deweyDecimalNumber;
-	}
-
-	public String getAuthor(){
-		return author;
-	}
-
-	public String getGenreSubject(){
-		return genreSubject;
-	}
-
-	public String getMainCharacters(){
-		String result = "";
-		for(String character : mainCharacters){
-			result+=character + "\n";
-		}
-
-		return result;
 	}
 
 	public String toString(){

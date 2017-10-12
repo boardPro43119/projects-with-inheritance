@@ -65,7 +65,7 @@ public class ReadingMaterialTester{
 
 		// System.out.println(library);
 
-		System.out.println(library.search("genre", "sports"));
+		System.out.println(library.search("story", "Trump"));
 
 	}
 }
