@@ -6,7 +6,6 @@ public class Newspaper extends ReadingMaterial{
 		super(title);
 		this.writingType = "Newspaper";
 		this.issue = issue;
-		this.coverStory = "";
 	}
 
 	public void setIssue(String newIssue){
@@ -15,7 +14,6 @@ public class Newspaper extends ReadingMaterial{
 
 	public void setCoverStory(String newCoverStory){
 		coverStory = newCoverStory;
-		hasCoverStory = true;
 	}
 
 	public String get(String property){
@@ -43,7 +41,6 @@ public class Newspaper extends ReadingMaterial{
 		}
 
 		result+="\n";
-		result+=getStatus();
 
 		return result;
 

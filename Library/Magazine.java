@@ -10,9 +10,6 @@ public class Magazine extends ReadingMaterial{
 		this.issue = issue;
 		this.genreSubject = subject;
 		this.pageCount = pageCount;
-		this.coverStory = "";
-
-		this.hasGenreSubject = true;
 	}
 
 	public void setIssue(String newIssue){
@@ -29,7 +26,6 @@ public class Magazine extends ReadingMaterial{
 
 	public void setCoverStory(String newCoverStory){
 		coverStory = newCoverStory;
-		hasCoverStory = true;
 	}
 
 	public String get(String property){
@@ -79,7 +75,6 @@ public class Magazine extends ReadingMaterial{
 		}
 
 		result+="\n";
-		result+=getStatus();
 
 		return result;
 	}

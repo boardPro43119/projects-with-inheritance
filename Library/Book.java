@@ -13,10 +13,6 @@ public class Book extends ReadingMaterial {
 		this.author = author;
 		this.genreSubject = genre;
 		this.pageCount = pageCount;
-
-		this.hasAuthor = true;
-		this.hasDeweyDecimalNumber = true;
-		this.hasGenreSubject = true;
 	}
 
 	public Book(String title, String author, String writingType, String genre, int pageCount){
@@ -24,14 +20,10 @@ public class Book extends ReadingMaterial {
 		this.author = author;
 		this.genreSubject = genre;
 		this.pageCount = pageCount;
-
-		this.hasAuthor = true;
-		this.hasGenreSubject = true;
 	}
 
 	public void setDeweyDecimalNumber(double newDeweyDecimalNumber){
 		deweyDecimalNumber = newDeweyDecimalNumber;
-		hasDeweyDecimalNumber = true;
 	}
 
 	public void setAuthor(String newAuthor){
@@ -44,13 +36,9 @@ public class Book extends ReadingMaterial {
 
 	public void addMainCharacter(String mainChar){
 		mainCharacters.add(mainChar);
-		hasMainCharacters = true;
 	}
 
 	public boolean removeMainCharacter(String mainChar){
-		if(mainCharacters.size() == 0){
-			hasMainCharacters = false;
-		}
 		return mainCharacters.remove(mainChar);
 	}
 
@@ -103,7 +91,6 @@ public class Book extends ReadingMaterial {
 		}
 
 		result+="\n";
-		result+=getStatus() + "\n";
 
 		return result;
 	}
